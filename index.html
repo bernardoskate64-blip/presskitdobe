@@ -8,7 +8,42 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
 
-<style>
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 900px) {
+  /* 1. HIDE IMAGE AND DECORATIONS ON MOBILE */
+  .hero-image, 
+  .hero-placeholder, 
+  .hero-circle, 
+  .hero-circle-dot, 
+  .waveform {
+    display: none !important;
+  }
+
+  /* 2. CENTER TEXT AND ADJUST HERO */
+  .hero { 
+    padding: 0 24px 80px;
+    height: 100vh;
+    justify-content: center; 
+    text-align: center;
+  }
+
+  /* 3. SCALE TITLE FOR SMALL SCREENS */
+  .hero-name {
+    font-size: clamp(50px, 12vw, 80px) !important;
+  }
+  
+  .hero-eyebrow {
+    justify-content: center;
+  }
+
+  /* 4. STACK OTHER SECTIONS */
+  section { padding: 60px 24px; }
+  .about { grid-template-columns: 1fr; gap: 40px; }
+  .music-grid { grid-template-columns: 1fr; }
+  .booking-inner { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
 :root {
   --gold: #C8A84B;
   --gold-light: #E8C96A;
