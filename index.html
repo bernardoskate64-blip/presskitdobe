@@ -9,6 +9,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
 
 <style>
+  @media (max-width: 900px) {
+    /* 1. Força o container a virar uma pilha */
+    section.hero, 
+    section#about { 
+      display: flex !important;
+      flex-direction: column !important; 
+      height: auto !important;
+      padding: 60px 20px !important;
+    }
+
+    /* 2. Força o texto e a imagem a ocuparem a largura toda */
+    section.hero > div, 
+    .hero-content, 
+    .hero-image {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: block !important;
+      position: relative !important;
+      left: 0 !important;
+    }
+
+    /* 3. Ajusta a imagem especificamente */
+    section.hero img, 
+    .hero-image img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      margin: 20px auto !important; /* Centraliza e dá espaço */
+    }
+  }
+</style>
 :root {
   --gold: #C8A84B;
   --gold-light: #E8C96A;
