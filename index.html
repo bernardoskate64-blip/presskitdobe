@@ -6,14 +6,17 @@
 <title>DOBÊ | DJ & Producer</title>
 
 <style>
+
+/* RESET */
 body{
 margin:0;
 font-family:Arial, sans-serif;
 background:#000;
 color:#fff;
-text-align:center;
+overflow-x:hidden;
 }
 
+/* HERO */
 .hero{
 height:100vh;
 display:flex;
@@ -21,21 +24,49 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 padding:20px;
+
+background-image:url("sua-imagem.jpg");
+background-size:cover;
+background-position:center;
+position:relative;
+
+/* efeito cinematic */
+animation: zoomHero 20s ease-in-out infinite alternate;
 }
 
+/* overlay estilo Boiler Room */
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.65);
+z-index:0;
+}
+
+.hero > *{
+position:relative;
+z-index:1;
+}
+
+/* ANIMAÇÃO DO NOME */
 h1{
 font-size:80px;
-letter-spacing:8px;
+letter-spacing:10px;
 margin:0;
+animation: floatText 4s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+text-shadow:0 0 20px rgba(255,204,0,0.2);
 }
 
+/* TAG */
 .tag{
 color:#ffcc00;
 font-size:12px;
-letter-spacing:4px;
+letter-spacing:5px;
 margin-bottom:10px;
+opacity:0.8;
 }
 
+/* SUB */
 .subtitle{
 color:#aaa;
 font-size:14px;
@@ -43,6 +74,7 @@ margin-top:10px;
 max-width:650px;
 }
 
+/* BOTÃO */
 .btn{
 margin-top:30px;
 padding:12px 28px;
@@ -52,8 +84,16 @@ color:#ffcc00;
 text-decoration:none;
 font-size:12px;
 letter-spacing:2px;
+transition:0.3s;
 }
 
+.btn:hover{
+background:#ffcc00;
+color:#000;
+transform:scale(1.05);
+}
+
+/* LINKS */
 .links{
 display:flex;
 justify-content:center;
@@ -69,15 +109,29 @@ font-size:12px;
 border:1px solid #ffcc00;
 padding:8px 14px;
 border-radius:20px;
+transition:0.3s;
 }
 
-section{
-padding:80px 20px;
+.links a:hover{
+background:#ffcc00;
+color:#000;
 }
+
+/* SEÇÕES */
+section{
+padding:100px 20px;
+opacity:0;
+transform:translateY(40px);
+animation: fadeIn 1s ease forwards;
+}
+
+section:nth-child(2){animation-delay:0.2s;}
+section:nth-child(3){animation-delay:0.4s;}
+section:nth-child(4){animation-delay:0.6s;}
 
 h2{
 color:#ffcc00;
-letter-spacing:3px;
+letter-spacing:4px;
 margin-bottom:20px;
 }
 
@@ -88,17 +142,74 @@ margin:0 auto;
 line-height:1.6;
 }
 
+/* EMBED */
 .embed{
 margin-top:30px;
 display:flex;
 justify-content:center;
 }
 
+/* FOOTER */
 footer{
 padding:40px;
 color:#444;
 font-size:12px;
+text-align:center;
 }
+
+/* ANIMAÇÕES */
+@keyframes floatText{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0px);}
+}
+
+@keyframes glow{
+0%{text-shadow:0 0 10px rgba(255,204,0,0.1);}
+100%{text-shadow:0 0 30px rgba(255,204,0,0.4);}
+}
+
+@keyframes fadeIn{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes zoomHero{
+0%{transform:scale(1);}
+100%{transform:scale(1.1);}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+h1{
+font-size:42px;
+letter-spacing:6px;
+text-align:center;
+}
+
+.subtitle{
+font-size:13px;
+padding:0 10px;
+text-align:center;
+}
+
+.links{
+flex-direction:column;
+align-items:center;
+}
+
+section{
+padding:70px 15px;
+}
+
+.embed iframe{
+width:100%;
+}
+}
+
 </style>
 
 </head>
@@ -112,7 +223,7 @@ font-size:12px;
 <h1>DOBÊ</h1>
 
 <div class="subtitle">
-DJ and producer since 2016
+DJ and producer since 2016 — focused on rhythm, texture and energy.
 </div>
 
 <a class="btn" href="#music">ENTER EXPERIENCE ↓</a>
@@ -128,7 +239,7 @@ DJ and producer since 2016
 <section>
 <h2>ABOUT</h2>
 <p>
-Electronic music producer since 2016, started at age 16 before becoming a DJ, developing a sound identity based on production, research, and sonic experimentation.
+Electronic music producer since 2016. A sonic identity built through experimentation, club culture and sound research.
 </p>
 </section>
 
@@ -136,21 +247,15 @@ Electronic music producer since 2016, started at age 16 before becoming a DJ, de
 <h2>MUSIC</h2>
 
 <div class="embed">
-
 <iframe style="border-radius:12px" 
 src="https://open.spotify.com/embed/track/67o6GZpeK1TR3NduSnP4xi" 
-width="300" height="80" frameborder="0"
-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-</iframe>
-
+width="300" height="80" frameborder="0"></iframe>
 </div>
 
 <div class="embed">
-
 <iframe width="80%" height="166" scrolling="no" frameborder="no"
 src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/beatsbydobe/dobe-lost-frequency-set-001-1">
 </iframe>
-
 </div>
 
 </section>
